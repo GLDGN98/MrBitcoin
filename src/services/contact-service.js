@@ -1,3 +1,8 @@
+import { asyncStorageService } from "./async-storage.service"
+import { storageService } from "./storage.service"
+
+const STORAGE_KEY = "contactDB"
+
 export const contactService = {
   getContacts,
   getContactById,
@@ -124,6 +129,17 @@ const contacts = [
   },
 ]
 
+_createContacts()
+
+function _createContacts() {
+  let contactsList = storageService.loadFromStorage(STORAGE_KEY)
+  if (!contactsList || !contactsList.length) {
+    contactsList = contacts
+    storageService.saveToStorage(STORAGE_KEY, contactsList)
+  }
+  return contactsList
+}
+
 function sort(arr) {
   return arr.sort((a, b) => {
     if (a.name.toLocaleLowerCase() < b.name.toLocaleLowerCase()) {
@@ -137,30 +153,15 @@ function sort(arr) {
 }
 
 function getContacts(filterBy = null) {
-  return new Promise((resolve, reject) => {
-    var contactsToReturn = contacts
-    if (filterBy && filterBy.term) {
-      contactsToReturn = filter(filterBy.term)
-    }
-    resolve(sort(contactsToReturn))
-  })
+  return asyncStorageService.query(STORAGE_KEY)
 }
 
 function getContactById(id) {
-  return new Promise((resolve, reject) => {
-    const contact = contacts.find((contact) => contact._id === id)
-    contact ? resolve(contact) : reject(`Contact id ${id} not found!`)
-  })
+  return asyncStorageService.get(STORAGE_KEY, id)
 }
 
 function deleteContact(id) {
-  return new Promise((resolve, reject) => {
-    const index = contacts.findIndex((contact) => contact._id === id)
-    if (index !== -1) {
-      contacts.splice(index, 1)
-    }
-    resolve(contacts)
-  })
+  return asyncStorageService.remove(STORAGE_KEY, id)
 }
 
 function _updateContact(contact) {
@@ -182,7 +183,13 @@ function _addContact(contact) {
 }
 
 function saveContact(contact) {
-  return contact._id ? _updateContact(contact) : _addContact(contact)
+  if (contact._id) {
+    return asyncStorageService.put(STORAGE_KEY, contact)
+  } else {
+    // when switching to backend - remove the next line
+    // contact.owner = userService.getLoggedinUser()
+    return asyncStorageService.post(STORAGE_KEY, contact)
+  }
 }
 
 function getEmptyContact() {

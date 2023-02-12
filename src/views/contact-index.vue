@@ -1,5 +1,6 @@
 <template>
     <div class="main-container">
+        <RouterLink to="/contact/edit"><button>Add a Contact</button></RouterLink>
         <ContactList @remove="removeContact" v-if="contacts" :contacts="contacts" />
     </div>
 </template>
