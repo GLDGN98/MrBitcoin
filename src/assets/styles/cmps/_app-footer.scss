@@ -1,0 +1,12 @@
+.app-footer {
+    min-height: 5vh;
+    background-color: #0c3c4c;
+
+    .footer-content {
+        max-width: 1024px;
+        margin: 0 auto;
+        color: white;
+        display: flex;
+        justify-content: center;
+    }
+}

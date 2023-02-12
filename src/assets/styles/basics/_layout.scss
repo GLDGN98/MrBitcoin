@@ -1,4 +1,4 @@
-.main-container {
+#app {
     display: grid;
     grid-template-columns: 20px 1fr 20px;
 
@@ -7,6 +7,7 @@
 
         &.full {
             grid-column: 1 /-1;
+
         }
     }
 

@@ -1,0 +1,24 @@
+.app-header {
+    background-color: #0c3c4c;
+    color: white;
+
+
+    .header-content {
+        display: flex;
+        justify-content: space-between;
+        min-height: 5vh;
+        align-items: center;
+        max-width: 1024px;
+        margin: 0 auto;
+
+        .nav-header {
+            display: flex;
+            gap: 2em;
+
+            a {
+                color: white;
+            }
+
+        }
+    }
+}
