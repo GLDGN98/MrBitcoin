@@ -1,0 +1,16 @@
+.contact-preview {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #bcbabc;
+    gap: 1em;
+    width: em(240px);
+    border-radius: 5px;
+    padding: 1em;
+
+
+    img {
+        width: 10rem;
+    }
+}

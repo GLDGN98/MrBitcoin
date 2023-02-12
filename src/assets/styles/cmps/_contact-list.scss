@@ -1,0 +1,9 @@
+.contact-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    list-style: none;
+    justify-items: center;
+    padding: 0;
+    gap: 1em;
+
+}
