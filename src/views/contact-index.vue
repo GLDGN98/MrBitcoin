@@ -1,18 +1,24 @@
 <template>
     <div class="main-container">
+        <UserMsg />
+        <ContactFilter @filter="onSetFilterBy" />
         <RouterLink to="/contact/edit"><button>Add a Contact</button></RouterLink>
-        <ContactList @remove="removeContact" v-if="contacts" :contacts="contacts" />
+        <ContactList @remove="removeContact" v-if="contacts" :contacts="filteredContacts" />
     </div>
 </template>
 
 <script>
 import ContactList from '../cmps/contact-list.vue'
+import {eventBus} from '../services/eventBus.service'
+import ContactFilter from '../cmps/contact-filter.vue';
+import UserMsg from '../cmps/user-msg.vue'
 import {contactService} from '../services/contact-service'
 
 export default {
     data() {
         return {
             contacts: null,
+            filterBy: {},
         }
     },
     async created() {
@@ -20,22 +26,29 @@ export default {
     },
     methods: {
         async removeContact(contactId) {
-            console.log(contactId)
-            // const msg = {
-            //     txt: `Car ${carId} deleted.`,
-            //     type: 'success',
-            //     timeout: 2500,
-            // }
+            const msg = {
+                txt: `Contact ${contactId} deleted.`,
+                type: 'success',
+                timeout: 2500,
+            }
             await contactService.deleteContact(contactId)
             this.contacts = this.contacts.filter(contact => contact._id !== contactId)
-            // eventBus.emit('user-msg', msg)
+            eventBus.emit('user-msg', msg)
         },
-        // onSetFilterBy(filterBy) {
-        //     this.filterBy = filterBy
-        // },
+        onSetFilterBy(filterBy) {
+            this.filterBy = filterBy
+        },
+    },
+    computed: {
+        filteredContacts() {
+            const regex = new RegExp(this.filterBy.txt, 'i')
+            return this.contacts.filter(contact => regex.test(contact.name))
+        },
     },
     components: {
-        ContactList
+        ContactList,
+        ContactFilter,
+        UserMsg
     }
 
 }
