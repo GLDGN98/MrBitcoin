@@ -5,6 +5,7 @@
             <nav class="nav-header">
                 <RouterLink to="/">Home</RouterLink>
                 <RouterLink to="/contact">Contacts</RouterLink>
+                <RouterLink to="/charts">Charts</RouterLink>
                 <RouterLink to="/about">About</RouterLink>
             </nav>
         </div>

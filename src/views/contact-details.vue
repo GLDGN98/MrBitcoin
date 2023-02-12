@@ -1,6 +1,8 @@
 <template>
     <div v-if="contact" class="contact-details">
         <h2>{{contact.name}}</h2>
+        <img class="robot" :src="'https://robohash.org/' + contact.name + '?set=set5'" alt="">
+
         <h3>{{contact.email}}</h3>
         <RouterLink to="/contact">
             <button>Back</button>
@@ -24,5 +26,7 @@ export default {
 </script>
 
 <style lang="scss">
-
+img {
+    width: 200px;
+}
 </style>
