@@ -18,24 +18,29 @@ async function getMarketPriceHistory() {
     const response = await axios.get(
       "https://api.blockchain.info/charts/market-price?timespan=2months&format=json&cors=true"
     )
-    return response.data.values.map((item) => {
+    if (!response.data.values) return
+    return response?.data?.values?.map((item) => {
       return {
         date: new Date(item.x * 1000),
         marketPrice: item.y,
       }
     })
   } catch (error) {
-    console.error(error)
-    return []
+    console.log(error)
   }
 }
 
 async function getAvgBlockSize() {
-  const response = await axios.get(
-    "https://api.blockchain.info/charts/avg-block-size?timespan=2months&format=json&cors=true"
-  )
-  return response?.data?.values?.map((obj) => ({
-    date: new Date(obj.x * 1000),
-    avgBlockSize: obj.y,
-  }))
+  try {
+    const response = await axios.get(
+      "https://api.blockchain.info/charts/avg-block-size?timespan=2months&format=json&cors=true"
+    )
+    if (!response.data.values) return
+    return response?.data?.values?.map((obj) => ({
+      date: new Date(obj.x * 1000),
+      avgBlockSize: obj.y,
+    }))
+  } catch (err) {
+    console.log(err)
+  }
 }
