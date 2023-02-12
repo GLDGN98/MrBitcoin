@@ -132,7 +132,6 @@ function sort(arr) {
     if (a.name.toLocaleLowerCase() > b.name.toLocaleLowerCase()) {
       return 1
     }
-
     return 0
   })
 }
@@ -160,7 +159,6 @@ function deleteContact(id) {
     if (index !== -1) {
       contacts.splice(index, 1)
     }
-
     resolve(contacts)
   })
 }

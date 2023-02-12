@@ -1,5 +1,5 @@
 <template>
-    <div class="main-contai">
+    <div class="main-container">
         <ContactList @remove="removeContact" v-if="contacts" :contacts="contacts" />
     </div>
 </template>
@@ -18,14 +18,15 @@ export default {
         this.contacts = await contactService.getContacts()
     },
     methods: {
-        async removeCar(contactId) {
+        async removeContact(contactId) {
+            console.log(contactId)
             // const msg = {
             //     txt: `Car ${carId} deleted.`,
             //     type: 'success',
             //     timeout: 2500,
             // }
             await contactService.deleteContact(contactId)
-            this.contacts = this.contacts.filter(contact => car._id !== contactId)
+            this.contacts = this.contacts.filter(contact => contact._id !== contactId)
             // eventBus.emit('user-msg', msg)
         },
         // onSetFilterBy(filterBy) {

@@ -7,3 +7,8 @@ const user = {
 export const userService = {
   getUser,
 }
+
+function getUser() {
+  if (user) return user
+  else return null
+}
