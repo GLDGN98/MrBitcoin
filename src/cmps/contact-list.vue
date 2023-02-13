@@ -10,7 +10,7 @@
                     <RouterLink :to="`/contact/edit/${contact._id}`">
                         <button>Edit</button>
                     </RouterLink>
-                    <button @click="onRemoveContact(contact._id)">x</button>
+                    <button @click="onRemoveContact(contact._id)">Delete</button>
                 </section>
             </li>
         </TransitionGroup>

@@ -1,7 +1,7 @@
 <template>
     <header class="app-header full">
         <div class="header-content">
-            <span>Contacts</span>
+            <span>LOGO</span>
             <nav class="nav-header">
                 <RouterLink to="/">Home</RouterLink>
                 <RouterLink to="/contact">Contacts</RouterLink>

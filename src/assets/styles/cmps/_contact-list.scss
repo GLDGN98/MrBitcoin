@@ -6,6 +6,11 @@
     padding: 0;
     gap: 1em;
 
+    .actions {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+    }
 
 
 }

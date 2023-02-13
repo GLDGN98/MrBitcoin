@@ -1,8 +1,10 @@
 <template>
     <div class="main-container">
         <UserMsg />
-        <ContactFilter @filter="onSetFilterBy" />
-        <RouterLink to="/contact/edit"><button>Add a Contact</button></RouterLink>
+        <div class="create-n-filter">
+            <ContactFilter @filter="onSetFilterBy" />
+            <RouterLink to="/contact/edit"><button>Add a Contact</button></RouterLink>
+        </div>
         <ContactList @remove="removeContact" v-if="contacts" :contacts="filteredContacts" />
     </div>
 </template>
@@ -22,7 +24,8 @@ export default {
         }
     },
     async created() {
-        this.contacts = await contactService.getContacts()
+        this.$store.dispatch({type: 'loadProducts'})
+        // this.contacts = await contactService.getContacts()
     },
     methods: {
         async removeContact(contactId) {
@@ -44,6 +47,9 @@ export default {
             const regex = new RegExp(this.filterBy.txt, 'i')
             return this.contacts.filter(contact => regex.test(contact.name))
         },
+        contacts() {
+            return this.contacts = this.$store.state.contactStore.contacts
+        }
     },
     components: {
         ContactList,
