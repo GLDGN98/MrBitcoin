@@ -3,12 +3,40 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: #bcbabc;
+    background-color: #7a7985;
+    ;
     gap: 1em;
     width: em(240px);
     border-radius: 5px;
     padding: 1em;
+    color: #f4c474;
 
+    a {
+        text-decoration: none;
+    }
+
+    button {
+        border: none;
+        background: none;
+        background-color: #bcbabc;
+        width: 4em;
+        height: 2em;
+        border-radius: 3px;
+        color: #fff;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        font-size: rem(13px);
+        font-family: 'Quicksand';
+
+        &:hover {
+            background-color: #b1925a;
+            text-decoration: none;
+
+        }
+    }
 
     img {
         width: 10rem;

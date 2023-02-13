@@ -1,7 +1,29 @@
 .app-header {
-    background-color: #0c3c4c;
+    background-color: #F7931A;
     color: white;
 
+    .logged-user-header {
+        display: flex;
+        align-items: center;
+    }
+
+    .bitcoin-rate-header {
+        span {
+            display: flex;
+            align-items: center;
+
+        }
+    }
+
+    .logo {
+        display: flex;
+        align-items: center;
+        gap: 0.3em;
+    }
+
+    .bitcoin-logo {
+        width: 25px;
+    }
 
     .header-content {
         display: flex;

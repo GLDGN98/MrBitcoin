@@ -1,8 +1,29 @@
 .main-container {
+
+    padding: 1.5em 0.5em;
+
     .create-n-filter {
         display: flex;
         justify-content: space-between;
         align-items: flex-end;
         padding-inline: 1em;
+    }
+
+    .add-contact-btn {
+        border: none;
+        background: #bcbabc;
+        padding: 0.5em 1em;
+        font-family: 'Quicksand';
+        font-weight: bold;
+        border-radius: 3px;
+        text-align: center;
+        cursor: pointer;
+        transition: all 0.3s;
+
+        &:hover {
+            background-color: #7a7985;
+            color: white;
+            scale: 0.97;
+        }
     }
 }

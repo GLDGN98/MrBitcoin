@@ -1,11 +1,14 @@
 <template>
     <div class="contact-filter">
-        <p>Search</p>
+        <span class="material-symbols-outlined">
+            search
+        </span>
         <input @input="onFilter" v-model="filterBy.txt" type="text">
     </div>
 </template>
 
 <script>
+
 export default {
     data() {
         return {

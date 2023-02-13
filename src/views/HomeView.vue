@@ -1,9 +1,13 @@
 <template>
   <div v-if="user">
     <h1>{{ user.name }}</h1>
-    <h3>{{ user.balance }}</h3>
+    <h3>${{ user.balance }}</h3>
   </div>
-  <span v-if="bitcoinRate">{{ bitcoinRate }}</span>
+  <span class="bitcoin-rate-header">
+    <span v-if="bitcoinRate">1$ = <span class="material-symbols-outlined">
+        currency_bitcoin
+      </span>{{ bitcoinRate }}</span>
+  </span>
 </template>
 
 <script>

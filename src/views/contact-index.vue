@@ -3,7 +3,7 @@
         <UserMsg />
         <div class="create-n-filter">
             <ContactFilter @filter="onSetFilterBy" />
-            <RouterLink to="/contact/edit"><button>Add a Contact</button></RouterLink>
+            <RouterLink to="/contact/edit"><button class="add-contact-btn">Add a Contact</button></RouterLink>
         </div>
         <ContactList @remove="removeContact" v-if="contacts" :contacts="filteredContacts" />
     </div>
@@ -24,7 +24,7 @@ export default {
         }
     },
     async created() {
-        this.$store.dispatch({type: 'loadProducts'})
+        this.$store.dispatch({type: 'loadContacts'})
         // this.contacts = await contactService.getContacts()
     },
     methods: {
@@ -34,8 +34,10 @@ export default {
                 type: 'success',
                 timeout: 2500,
             }
-            await contactService.deleteContact(contactId)
-            this.contacts = this.contacts.filter(contact => contact._id !== contactId)
+            this.$store.dispatch({type: 'removeContact', contactId})
+
+            // await contactService.deleteContact(contactId)
+            // this.contacts = this.contacts.filter(contact => contact._id !== contactId)
             eventBus.emit('user-msg', msg)
         },
         onSetFilterBy(filterBy) {
