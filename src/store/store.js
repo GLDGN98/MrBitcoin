@@ -3,7 +3,6 @@ import Vuex from "vuex"
 
 export const myStore = Vuex.createStore({
   strict: true,
-
   modules: {
     contactStore,
   },

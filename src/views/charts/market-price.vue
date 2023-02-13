@@ -1,7 +1,7 @@
 <template>
-    <div class="market-price-chart">
-        <Bar v-if="chartData.labels" id="market-price-chart" :options="chartOptions" :data="chartData" />
-    </div>
+  <div class="market-price-chart">
+    <Bar v-if="chartData.labels" id="market-price-chart" :options="chartOptions" :data="chartData" />
+  </div>
 </template>
 
 <script>
@@ -21,7 +21,8 @@ export default {
         datasets: [
             {
                  data: null,
-                 label: 'Market Price (USD)'
+                 label: 'Market Price (USD)',
+                 backgroundColor: '#F7931A'
                  }
         ]
       },
@@ -41,10 +42,7 @@ export default {
 
 <style lang="scss">
 .market-price-chart {
-    width: 100%;
-    height: 45vh;
-    margin: auto;
-
-
+  width: 100%;
+  height: 40vh;
 }
 </style>

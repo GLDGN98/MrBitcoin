@@ -1,19 +1,39 @@
 <template>
-    <div class="avg-block-size-chart">
-        <Bar v-if="chartData.labels && chartData.labels.length" id="avg-block-size-chart" :options="chartOptions"
-            :data="chartData" />
-    </div>
+  <div class="avg-block-size-chart">
+    <Line v-if="chartData.labels && chartData.labels.length" id="avg-block-size-chart" :options="chartOptions"
+      :data="chartData" />
+  </div>
 </template>
 <script>
-import { Bar } from 'vue-chartjs'
-import { Chart as ChartJS, Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale } from 'chart.js'
+// import { Bar } from 'vue-chartjs'
+import {
+    Chart as ChartJS,
+    CategoryScale,
+    LinearScale,
+    PointElement,
+    LineElement,
+    Title,
+    Tooltip,
+    Legend
+} from 'chart.js'
 import { bitcoinService } from '../../services/bitcoin-service'
 
-ChartJS.register(Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale)
+// ChartJS.register(Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale)
+import { Line } from 'vue-chartjs'
+
+ChartJS.register(
+    CategoryScale,
+    LinearScale,
+    PointElement,
+    LineElement,
+    Title,
+    Tooltip,
+    Legend
+)
 
 export default {
   name: 'BarChart',
-  components: { Bar },
+  components: { Line },
   data() {
     return {
       chartData: {
@@ -21,7 +41,8 @@ export default {
         datasets: [
             {
                  data: null,
-                 label: 'Avg Block Size'
+                 label: 'Avg Block Size',
+                 backgroundColor: '#F7931A',
                  }
         ]
       },
@@ -37,10 +58,9 @@ export default {
   }
 }
 </script>
-<style>
+<style lang="scss">
 .avg-block-size-chart {
-    width: 100%;
-    height: 45vh;
-    margin: auto;
+  width: 100%;
+  height: 40vh;
 }
 </style>
