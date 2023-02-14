@@ -1,16 +1,19 @@
 <template>
   <h1 class="main-summary">Bitcoin is an innovative payment network and a new kind of money.</h1>
   <div class="home-view">
-    <!-- <div class="user-info" v-if="user">
-      <h2>{{ user.name }}</h2>
-      <img class="robot" :src="'https://robohash.org/' + user.name + '?set=set5'" alt="">
+    <div class="user-info" v-if="user">
+      <h2>Hi {{ user.username }}!</h2>
+      <img class="robot" :src="'https://robohash.org/' + user.username + '?set=set5'" alt="">
       <h3>${{ user.balance }}</h3>
       <span class="bitcoin-rate-header">
         <span v-if="bitcoinRate">1$ = <span class="material-symbols-outlined">
             currency_bitcoin
           </span>{{ bitcoinRate }}</span>
       </span>
-    </div> -->
+      <div>
+        <TransferList />
+      </div>
+    </div>
     <h3 class="get-started">Get started with Bitcoin
     </h3>
     <div class="home-main-content">
@@ -55,8 +58,10 @@
 <script>
 import { userService } from '../services/user-service';
 import {bitcoinService} from '../services/bitcoin-service'
+import TransferList from '../cmps/transfer-list.vue';
 
 export default {
+  components: { TransferList },
   data() {
     return {
       user: null,

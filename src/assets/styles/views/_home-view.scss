@@ -58,6 +58,10 @@
             align-items: center;
             justify-content: center;
             gap: 0.5em;
+
+            img {
+                width: 100px;
+            }
         }
 
         .bitcoin-rate-header {
