@@ -4,12 +4,18 @@ import ContactIndex from "../views/contact-index.vue"
 import ContactDetails from "../views/contact-details.vue"
 import ContactEdit from "../views/contact-edit.vue"
 import Chart from "../views/chart.vue"
+import Signup from "../views/login.vue"
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
-      path: "/",
+      path: "/signup",
+      name: "signup",
+      component: Signup,
+    },
+    {
+      path: "/home",
       name: "home",
       component: HomeView,
     },
@@ -38,6 +44,14 @@ const router = createRouter({
       component: Chart,
     },
   ],
+})
+
+router.beforeEach((to, from, next) => {
+  if (to.path === "/") {
+    next("/signup")
+  } else {
+    next()
+  }
 })
 
 export default router

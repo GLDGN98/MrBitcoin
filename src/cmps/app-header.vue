@@ -5,11 +5,19 @@
                 <img class="bitcoin-logo" src="../assets/img/bitcoin.png" alt="bitcoin-logo">
                 <span>MrBitcoin</span>
             </div>
-            <div class="logged-user-header" v-if="user">
-                <span class="material-symbols-outlined">
-                    person
-                </span>
-                <span>{{ user.name }}</span>
+            <div class="logged-user-header">
+                <template v-if="user">
+                    <span class="material-symbols-outlined">person</span>
+                    <span>{{ user.username }}</span>
+                    <button @click="handleLogout">Logout</button>
+                </template>
+                <template class="login" v-else>
+                    <router-link to="/signup">Login
+                        <span class="material-symbols-outlined">
+                            login
+                        </span>
+                    </router-link>
+                </template>
             </div>
             <span class="bitcoin-rate-header">
                 <span v-if="bitcoinRate">1$ = <span class="material-symbols-outlined">
@@ -17,7 +25,7 @@
                     </span>{{ bitcoinRate }}</span>
             </span>
             <nav class="nav-header">
-                <RouterLink to="/">Home</RouterLink>
+                <RouterLink to="/home">Home</RouterLink>
                 <RouterLink to="/contact">Contacts</RouterLink>
                 <RouterLink to="/charts">Charts</RouterLink>
                 <RouterLink to="/about">About</RouterLink>
@@ -38,8 +46,21 @@ export default {
     }
   },
   async created() {
-    this.user = userService.getUser()
+    // this.user = await userService.getLoggedinUser()
     this.bitcoinRate = await bitcoinService.getRate("USD", 1)
+    this.$store.dispatch("getUser");
+
   },
+  methods: {
+    handleLogout() {
+        this.$store.dispatch("logout")
+    }
+  },
+  computed: {
+    user() {
+             return this.user = this.$store.state.userStore.user
+        }
+        
+  }
 }
 </script>

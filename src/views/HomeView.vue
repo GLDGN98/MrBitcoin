@@ -64,7 +64,7 @@ export default {
     }
   },
   async created() {
-    this.user = userService.getUser()
+    this.user = userService.getLoggedinUser()
     this.bitcoinRate = await bitcoinService.getRate("USD", 1)
   }
 

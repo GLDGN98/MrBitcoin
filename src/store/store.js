@@ -1,10 +1,12 @@
 import { contactStore } from "./contact.store"
+import { userStore } from "./user.store"
 import Vuex from "vuex"
 
 export const myStore = Vuex.createStore({
   strict: true,
   modules: {
     contactStore,
+    userStore,
   },
 })
 
