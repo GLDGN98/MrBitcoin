@@ -23,6 +23,7 @@
         align-items: center;
         justify-content: center;
         gap: 4em;
+        padding: 2em;
 
         ul {
             display: flex;
@@ -60,7 +61,12 @@
             gap: 0.5em;
 
             img {
-                width: 100px;
+                width: 75px;
+            }
+
+            .home-page-trsc {
+                border: 1px solid #4D5060;
+                padding: 1em;
             }
         }
 

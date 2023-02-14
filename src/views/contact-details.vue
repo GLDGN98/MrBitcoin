@@ -2,16 +2,15 @@
     <div v-if="contact" class="contact-details">
         <h2>{{contact.name}}</h2>
         <img class="robot" :src="'https://robohash.org/' + contact.name + '?set=set5'" alt="">
-
         <h3>{{contact.email}}</h3>
         <div>
             <TransferFunds @transfer="handleTransfer" />
         </div>
-        <div>
+        <div class="trsc-list">
             <TransferList :contact="contact" />
         </div>
         <RouterLink to="/contact">
-            <button>Back</button>
+            <button class="back">Back</button>
         </RouterLink>
     </div>
 </template>

@@ -1,11 +1,11 @@
 <template>
-    <ul>
-        <li v-for="trsc in transactions" v-bind:key="trsc.at">
-            <span>To : {{ trsc.to }}</span>
-            <span>At : {{(trsc.at) }}</span>
-            <span>Amount : {{ trsc.amount }}</span>
-        </li>
-    </ul>
+  <ul>
+    <li v-for="trsc in transactions" v-bind:key="trsc.at">
+      <span><b>To </b> {{ trsc.to }}</span>
+      <span><b>At </b> {{formatedDate(trsc) }}</span>
+      <span><b>Amount </b> ${{ trsc.amount }}</span>
+    </li>
+  </ul>
 </template>
 
 <script>
@@ -19,8 +19,14 @@ export default {
   },
   data() {
     return {
-      transactions: []
+      transactions: [],
     }
+  },
+  computed : {
+    formatedDate() {
+      return (trsc) => utilService.formatTime(trsc.at);
+    }
+
   },
   async created() {
     const user = await userService.getById(userService.getLoggedinUser()._id)
@@ -35,16 +41,30 @@ export default {
 </script>
 
 <style lang="scss">
-ul {
-    list-style: none;
-    padding: 0;
-    // display: flex;
-    // flex-direction: column;
-    // gap: 0.5em;
+h4 {
+  text-align: center;
+  padding: 0.5em;
+}
 
-    li {
-        // display: flex;
-        // gap: 1em;
+ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+
+
+  li {
+    display: flex;
+    gap: 1em;
+
+    span {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.3em;
+      min-width: 150px;
     }
+  }
 }
 </style>

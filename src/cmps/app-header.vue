@@ -7,9 +7,16 @@
             </div>
             <div class="logged-user-header">
                 <template v-if="user">
-                    <span class="material-symbols-outlined">person</span>
-                    <span>{{ user.username }}</span>
-                    <button @click="handleLogout">Logout</button>
+                    <div class="user-appear">
+                        <span class="material-symbols-outlined">person</span>
+                        <span>{{ user.username }}</span>
+                    </div>
+                    <div @click="handleLogout" class="logout-appear">
+                        <button class="logout-btn">Logout</button>
+                        <span class="material-symbols-outlined">
+                            logout
+                        </span>
+                    </div>
                 </template>
                 <template class="login" v-else>
                     <router-link to="/signup">Login
@@ -28,7 +35,7 @@
                 <RouterLink to="/home">Home</RouterLink>
                 <RouterLink to="/contact">Contacts</RouterLink>
                 <RouterLink to="/charts">Charts</RouterLink>
-                <RouterLink to="/about">About</RouterLink>
+                <!-- <RouterLink to="/about">About</RouterLink> -->
             </nav>
         </div>
     </header>

@@ -42,59 +42,61 @@ if (user) this.$router.push('/home')
 </script>
 
 <style lang="scss">
-form {
+.login {
+    form {
 
-    .logo {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    gap: 1em;
-    border: 1px solid #bcbabc;
-    margin: 200px auto;
-    width: 500px;
-    padding: 2em;
-    box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
-
-    label {
-        border: 1px solid #bcbabc;
-        padding: 0.3em;
-        border-radius: 3px;
-
-        input {
-            border: none;
-            outline: none;
-            height: 20px;
-            padding-left: 0.3em;
+        .logo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
-    }
 
-    img {
-        width: 50px
-    }
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 1em;
+        border: 1px solid #bcbabc;
+        margin: 200px auto;
+        width: 500px;
+        padding: 2em;
+        box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
 
-    h1 {
-        color: #1C1F30;
+        label {
+            border: 1px solid #bcbabc;
+            padding: 0.3em;
+            border-radius: 3px;
 
-    }
+            input {
+                border: none;
+                outline: none;
+                height: 20px;
+                padding-left: 0.3em;
+            }
+        }
 
-    button {
-        width: 250px;
-        height: 30px;
-        border: none;
-        background: #0c3c4c;
-        color: white;
-        border-radius: 3px;
-        font-family: 'Quicksand';
-        font-size: 16px;
-        cursor: pointer;
+        img {
+            width: 50px
+        }
+
+        h1 {
+            color: #1C1F30;
+
+        }
+
+        button {
+            width: 250px;
+            height: 30px;
+            border: none;
+            background: #004B8D;
+            color: white;
+            border-radius: 3px;
+            font-family: 'Quicksand';
+            font-size: 16px;
+            cursor: pointer;
 
 
+        }
     }
 }
 </style>

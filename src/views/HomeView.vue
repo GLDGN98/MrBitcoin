@@ -1,16 +1,18 @@
 <template>
-  <h1 class="main-summary">Bitcoin is an innovative payment network and a new kind of money.</h1>
   <div class="home-view">
+    <h1 class="main-summary">Bitcoin is an innovative payment network and a new kind of money.</h1>
     <div class="user-info" v-if="user">
       <h2>Hi {{ user.username }}!</h2>
-      <img class="robot" :src="'https://robohash.org/' + user.username + '?set=set5'" alt="">
-      <h3>${{ user.balance }}</h3>
+      <!-- <img class="robot" :src="'https://robohash.org/' + user.username + '?set=set5'" alt=""> -->
+      <h3>Balance : ${{ user.balance }}</h3>
       <span class="bitcoin-rate-header">
         <span v-if="bitcoinRate">1$ = <span class="material-symbols-outlined">
             currency_bitcoin
           </span>{{ bitcoinRate }}</span>
       </span>
-      <div>
+      <div class="home-page-trsc">
+        <h4>Your last transactions</h4>
+        <hr>
         <TransferList />
       </div>
     </div>
