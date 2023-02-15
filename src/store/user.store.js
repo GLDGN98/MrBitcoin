@@ -29,6 +29,7 @@ export const userStore = {
       }
     },
     async login({ commit }, currUser) {
+      console.log(currUser)
       try {
         const user = await userService.login(currUser.username)
         commit("setUser", user)

@@ -35,28 +35,23 @@
                 <RouterLink to="/home">Home</RouterLink>
                 <RouterLink to="/contact">Contacts</RouterLink>
                 <RouterLink to="/charts">Charts</RouterLink>
-                <!-- <RouterLink to="/about">About</RouterLink> -->
             </nav>
         </div>
     </header>
 </template>
 
 <script>
-import {userService} from '../services/user-service'
 import {bitcoinService} from '../services/bitcoin-service'
 
 export default {
     data() {
     return {
-      user: null,
       bitcoinRate: 0
     }
   },
   async created() {
-    // this.user = await userService.getLoggedinUser()
     this.bitcoinRate = await bitcoinService.getRate("USD", 1)
     this.$store.dispatch("getUser");
-
   },
   methods: {
     handleLogout() {
@@ -65,9 +60,8 @@ export default {
   },
   computed: {
     user() {
-             return this.user = this.$store.state.userStore.user
+             return  this.$store.getters.user
         }
-        
   }
 }
 </script>

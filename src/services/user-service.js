@@ -29,17 +29,18 @@ function login(username) {
   return asyncStorageService.query(STORAGE_KEY).then((users) => {
     const user = users.find((user) => user.username === username)
     if (user) return _setLoggedinUser(user)
-    else signup(username)
+    else return signup(username)
   })
 }
 
 function signup(username) {
   const user = { username, balance: 100, transactions: [] }
-  return asyncStorageService.post(STORAGE_KEY, user).then(_setLoggedinUser)
+  return asyncStorageService.post(STORAGE_KEY, user).then((user) => {
+    return _setLoggedinUser(user)
+  })
 }
 
 function getLoggedinUser() {
-  console.log(JSON.parse(sessionStorage.getItem(STORAGE_KEY_LOGGEDIN)))
   return JSON.parse(sessionStorage.getItem(STORAGE_KEY_LOGGEDIN))
 }
 

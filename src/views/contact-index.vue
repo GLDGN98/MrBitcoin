@@ -1,6 +1,5 @@
 <template>
     <div class="main-container">
-        <UserMsg />
         <div class="create-n-filter">
             <ContactFilter @filter="onSetFilterBy" />
             <RouterLink to="/contact/edit"><button class="add-contact-btn">Add a Contact</button></RouterLink>
@@ -11,15 +10,12 @@
 
 <script>
 import ContactList from '../cmps/contact-list.vue'
-import {eventBus} from '../services/eventBus.service'
+import {eventBus, showSuccessMsg} from '../services/eventBus.service'
 import ContactFilter from '../cmps/contact-filter.vue';
-import UserMsg from '../cmps/user-msg.vue'
-import {contactService} from '../services/contact-service'
 
 export default {
     data() {
         return {
-            contacts: null,
             filterBy: {},
         }
     },
@@ -29,16 +25,8 @@ export default {
     },
     methods: {
         async removeContact(contactId) {
-            const msg = {
-                txt: `Contact ${contactId} deleted.`,
-                type: 'success',
-                timeout: 2500,
-            }
             this.$store.dispatch({type: 'removeContact', contactId})
-
-            // await contactService.deleteContact(contactId)
-            // this.contacts = this.contacts.filter(contact => contact._id !== contactId)
-            eventBus.emit('user-msg', msg)
+            showSuccessMsg(`Contact ${contactId} deleted.`)
         },
         onSetFilterBy(filterBy) {
             this.filterBy = filterBy
@@ -50,13 +38,12 @@ export default {
             return this.contacts.filter(contact => regex.test(contact.name))
         },
         contacts() {
-            return this.contacts = this.$store.state.contactStore.contacts
+            return this.$store.getters.contacts
         }
     },
     components: {
         ContactList,
         ContactFilter,
-        UserMsg
     }
 
 }

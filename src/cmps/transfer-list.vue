@@ -1,6 +1,6 @@
 <template>
-  <ul>
-    <li v-for="trsc in transactions" v-bind:key="trsc.at">
+  <ul class="transfer-list">
+    <li class="list-preview" v-for="trsc in transactions" v-bind:key="trsc.at">
       <span><b>To </b> {{ trsc.to }}</span>
       <span><b>At </b> {{formatedDate(trsc) }}</span>
       <span><b>Amount </b> ${{ trsc.amount }}</span>
@@ -54,7 +54,7 @@ ul {
   gap: 0.5em;
 
 
-  li {
+  .list-preview {
     display: flex;
     gap: 1em;
 

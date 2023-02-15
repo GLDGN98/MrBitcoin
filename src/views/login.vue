@@ -33,6 +33,7 @@ if (user) this.$router.push('/home')
     methods: {
        async handleUser() {
          const user = await userService.login(this.username)
+         console.log("look", user)
          this.$store.dispatch('login', user)
          this.$router.push('/home')
         }
