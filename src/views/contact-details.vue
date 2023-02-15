@@ -37,7 +37,9 @@ async handleTransfer(amount) {
     try {
         if (this.amount < 0) throw new Error('Amount is not valid')
   await userService.updateBalance(amount, this.contact)
+  this.$router.push('/contact')
             showSuccessMsg('Transfer successfully sent.')
+
     } catch (err) {
         console.log(err);
         showErrorMsg('Transfer failed, Something went wrong!')
