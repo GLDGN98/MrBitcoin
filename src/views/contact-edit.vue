@@ -44,5 +44,38 @@ export default {
 </script>
 
 <style lang="scss">
+.contact-edit {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1em;
+    background: #bcbabc;
+    color: white;
+    margin-top: 150px;
+    padding: 1.5em;
+    border-radius: 5px;
 
+    label {
+        width: 50px;
+    }
+
+    button {
+        align-self: end;
+        width: 100px;
+        height: 30px;
+        border: none;
+        background: #0c3c4c;
+        color: white;
+        border-radius: 3px;
+        font-family: "Quicksand";
+        font-size: 16px;
+        cursor: pointer;
+        transition: all 0.3s;
+
+        &:hover {
+            background-color: #7a7985;
+        }
+    }
+
+}
 </style>
