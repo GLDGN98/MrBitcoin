@@ -15,8 +15,7 @@ MrBitcoin is a user-friendly digital wallet app designed for managing and transf
 
 ## Screenshots
 
-![Screenshot 1](/screenshots/screenshot1.png)
-![Screenshot 2](/screenshots/screenshot2.png)
+![Screenshot 1](/C:/Users\gilad\OneDrive\שולחן העבודה\CV\Project-Images/bitcoinVue.png)
 
 ## Getting Started
 
@@ -26,20 +25,5 @@ Follow these steps to get started with MrBitcoin:
 2. Install dependencies: `npm install`
 3. Start the app: `npm start`
 
-## Contributing
 
-We welcome contributions from the community! To contribute to MrBitcoin, follow these steps:
 
-1. Fork the repository.
-2. Create a new branch: `git checkout -b feature/your-feature-name`
-3. Commit your changes: `git commit -m "Add your feature"`
-4. Push to the branch: `git push origin feature/your-feature-name`
-5. Create a pull request.
-
-## Contact
-
-For any questions or feedback, please contact us at contact@mrbitcoinapp.com.
-
-## License
-
-This project is licensed under the [MIT License](LICENSE).
