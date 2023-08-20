@@ -4,10 +4,10 @@ MrBitcoin is a user-friendly digital wallet app designed for managing and transf
 
 ## Features
 
-- **Secure Wallet**: Keep your Bitcoins safe and secure with our state-of-the-art wallet technology.
-- **Contact Management**: Easily manage your contacts and send Bitcoins to friends and family.
-- **Real-Time Information**: Get instant updates on trade volume and Bitcoin exchange rates.
-- **User-Friendly Interface**: Intuitive design for a seamless user experience.
+- **Bitcoin Transfer:** Transfer Bitcoins from your balance to your contacts seamlessly within the app.
+- **Contact Management:** Easily edit, add, and remove contacts to streamline your Bitcoin transactions.
+- **Real-Time Information:** Utilize an integrated API to display real-time information about Bitcoin trade volume and exchange rates.
+
 
 ## Demo
 
