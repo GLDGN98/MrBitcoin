@@ -9,14 +9,6 @@ MrBitcoin is a user-friendly digital wallet app designed for managing and transf
 - **Real-Time Information:** Utilize an integrated API to display real-time information about Bitcoin trade volume and exchange rates.
 
 
-## Demo
-
-[See Demo](https://yourdemo.link) - Explore the app in action!
-
-## Screenshots
-
-![Screenshot 1](/C:/Users\gilad\OneDrive\שולחן העבודה\CV\Project-Images/bitcoinVue.png)
-
 ## Getting Started
 
 Follow these steps to get started with MrBitcoin:
